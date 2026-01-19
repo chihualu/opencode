@@ -3,28 +3,14 @@
   "provider": {
     "vllm": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "vllm",
+      "name": "Provision",
       "options": {
         "baseURL": "{env:API_BASEURL}",
         "apiKey": "{env:API_KEY}"
       },
       "models": {
-        "qwen2.5-coder": {
-          "name": "qwen2.5-coder",
-          "limit": {
-            "context": 131000,
-            "output": 16384
-          }
-        },
-		"deepseek-r1": {
-          "name": "deepseek-r1",
-          "limit": {
-            "context": 131000,
-            "output": 16384
-          }
-        },
-		"autocomplete": {
-          "name": "autocomplete",
+        "gpt-oss": {
+          "name": "gpt-oss",
           "limit": {
             "context": 131000,
             "output": 16384
@@ -36,6 +22,5 @@
   "share": "disabled",
   "autoupdate": true,
   "enabled_providers": ["vllm"],
-  "small_model": "vllm/autocomplete",
-  "model": "vllm/qwen2.5-coder"
+  "model": "vllm/gpt-oss"
 }

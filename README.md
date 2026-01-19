@@ -39,10 +39,11 @@ docker run -it --rm \
   ghcr.io/chihualu/opencode:latest
 ```
 
-*   **`-e OLLAMA_BASEURL=...`**: URL to your Ollama API.
+*   **`-e API_BASEURL=...`**: URL to your OpenAI URL API.
     *   If running Ollama on the same machine (Windows/Mac), use `http://host.docker.internal:11434/v1`.
     *   If on Linux, use `http://localhost:11434/v1` with `--network="host"`, or the host's actual IP.
-    *   **Custom Server**: `http://ai.provision.com.tw:11434/v1`
+    *   **Custom Server**: `http://ai.company.com:11434/v1`
+*   **`-e API_KEY=...`**: API KEY
 *   **`-v $(pwd):/workspace`**: Mounts your current directory to `/workspace` inside the container.
 
 ### Building Locally
