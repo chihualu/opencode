@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "provider": "openai",
+  "model": "gpt-oss",
+  "modelParams": {},
+  "ephemeralSettings": {
+    "auth-key": "sk-1234",
+    "base-url": "http://ai.provision.com.tw/v1"
+  }
+}

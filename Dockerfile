@@ -7,6 +7,14 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 # Install llxprt-code globally
 RUN npm install -g @vybestack/llxprt-code
 
+# Create configuration directory
+RUN mkdir -p /root/.llxprt
+
+# Copy configuration files
+COPY settings.json /root/.llxprt/settings.json
+COPY welcomeConfig.json /root/.llxprt/welcomeConfig.json
+COPY profiles/ /root/.llxprt/profiles/
+
 # Create working directory
 WORKDIR /workspace
 
