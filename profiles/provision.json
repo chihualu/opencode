@@ -4,7 +4,7 @@
   "model": "gpt-oss",
   "modelParams": {},
   "ephemeralSettings": {
-    "auth-key": "sk-1234",
-    "base-url": "http://ai.provision.com.tw/v1"
+    "auth-key": "${API_KEY}",
+    "base-url": "${API_BASEURL}"
   }
 }

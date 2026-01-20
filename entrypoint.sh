@@ -1,25 +1,19 @@
 #!/bin/bash
 set -e
 
-# Default values if not provided via environment variables
-PROVIDER=${PROVIDER:-"openai"}
-MODEL=${MODEL:-"gpt-4o"}
+# Path to the profile configuration
+PROFILE_PATH="/root/.llxprt/profiles/provision.json"
 
-# Build the command arguments
-ARGS=""
-
-if [ -n "$API_BASEURL" ]; then
-    ARGS="$ARGS --baseurl $API_BASEURL"
-fi
-
-if [ -n "$API_KEY" ]; then
-    # llxprt might expect specific env vars or arguments depending on provider
-    # For generic OpenAI compatible, we export the key as OPENAI_API_KEY
-    export OPENAI_API_KEY="$API_KEY"
+# Check if environment variables are set and the profile exists
+if [ -f "$PROFILE_PATH" ]; then
+    echo "Configuring profile with environment variables..."
     
-    # Also support passing key via argument if needed (check llxprt documentation)
-    # ARGS="$ARGS --key $API_KEY"
+    # Use envsubst to replace ${API_KEY} and ${API_BASEURL} in the file
+    # We use a temporary file to avoid issues with reading/writing same file
+    envsubst < "$PROFILE_PATH" > "$PROFILE_PATH.tmp" && mv "$PROFILE_PATH.tmp" "$PROFILE_PATH"
+else
+    echo "Warning: Profile configuration not found at $PROFILE_PATH"
 fi
 
-# Pass any additional arguments from docker run command
-exec llxprt "$@" $ARGS
+# Pass arguments to llxprt
+exec llxprt "$@"

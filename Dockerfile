@@ -2,7 +2,7 @@
 FROM node:20-slim
 
 # Install git and other dependencies if needed
-RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git gettext-base && rm -rf /var/lib/apt/lists/*
 
 # Install llxprt-code globally
 RUN npm install -g @vybestack/llxprt-code
