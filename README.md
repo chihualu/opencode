@@ -10,7 +10,7 @@
 *   **強大核心**: 基於 Node.js 20 與最新版 `@vybestack/llxprt-code`。
 *   **專業級配置**: 內建 **Senior Java Architect & Engineer** 系統提示詞 (`core.md`)。
 *   **靈活安全**: 支援透過環境變數注入 API Base URL 和 API Key，無需將敏感資訊寫死在映像檔中。
-*   **預設 Profile**: 自動載入 `provision` 設定檔，開箱即用。
+*   **預設 Profile**: 自動載入 `default` 設定檔，開箱即用。
 *   **輕量化**: 使用 `node:20-slim` 映像檔，兼顧效能與體積。
 
 ## 📦 快速開始

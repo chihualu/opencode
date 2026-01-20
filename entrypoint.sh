@@ -2,7 +2,7 @@
 set -e
 
 # Path to the profile configuration
-PROFILE_PATH="/root/.llxprt/profiles/provision.json"
+PROFILE_PATH="/root/.llxprt/profiles/default.json"
 
 # Check if environment variables are set and the profile exists
 if [ -f "$PROFILE_PATH" ]; then
