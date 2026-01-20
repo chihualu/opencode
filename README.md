@@ -1,7 +1,7 @@
 # OpenCode Docker Image
 
-![GitHub Actions Workflow Status](https://github.com/chihualu/opencode-image/actions/workflows/publish.yml/badge.svg)
-![License](https://img.shields.io/github/license/chihualu/opencode-image)
+![GitHub Actions Workflow Status](https://github.com/chihualu/opencode/actions/workflows/publish.yml/badge.svg)
+![License](https://img.shields.io/github/license/chihualu/opencode)
 
 This project provides a customized Docker image for **OpenCode**, extending the official `ghcr.io/anomalyco/opencode` image. It pre-configures the environment with a custom `opencode.json` suitable for connecting to OpenAI-compatible APIs (like vLLM).
 
