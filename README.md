@@ -23,7 +23,7 @@
 docker run -it --rm \
   --name procode \
   -v $(pwd):/workspace \
-  -e API_BASEURL="https://ai.provision.com.tw/v1" \
+  -e API_BASEURL="https://your-api-endpoint.com/v1" \
   -e API_KEY="您的-API-KEY" \
   ghcr.io/chihualu/procode:latest
 ```
