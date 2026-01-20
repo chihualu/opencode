@@ -1,14 +1,21 @@
 # Base image
-FROM ghcr.io/anomalyco/opencode:latest
+FROM node:20-slim
 
-# Create a directory for the configuration file
-# Using a standard location like /etc/opencode is a good practice
-RUN mkdir -p /etc/opencode
+# Install git and other dependencies if needed
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-# Copy the local opencode.json into the container
-COPY opencode.json /etc/opencode/opencode.json
+# Install llxprt-code globally
+RUN npm install -g @vybestack/llxprt-code
 
-# Set the OPENCODE_CONFIG environment variable
-# This tells the application specifically where to look for the configuration,
-# overriding default search paths.
-ENV OPENCODE_CONFIG="/etc/opencode/opencode.json"
+# Create working directory
+WORKDIR /workspace
+
+# Copy entrypoint script
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Set entrypoint
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+# Default command (empty, can be overridden)
+CMD []
